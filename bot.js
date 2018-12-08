@@ -46,7 +46,7 @@ client.on("message", message => {
 
 
 client.on('message', message => {
-    if (message.content.startsWith(prefix + 'امسح')) {
+    if (message.content.startsWith(prefix + 'مسح')) {
       if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(`للاداره بس :(`).catch(console.error);
   message.delete()
   if(!message.channel.guild) return;
@@ -70,18 +70,5 @@ client.on('message', message => {
   
   });
 
-var antispam = require("anti-spam");//npm i anti-spam
- 
-antispam(client, {
-  warnBuffer: 3, //الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على تحذير.
-  maxBuffer: 5, // الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على ميوت.
-  interval: 1000, // مقدار الوقت قبل حصول باند
-  warningMessage: "وقف سبام!!",
-  roleMessage: "تم الاسكات محاولة سبام",
-  roleName: "Muted", // اسم رتبة الميوت
-  maxDuplicatesWarning: 7, // عدد الرسايل الي قبل التحذيرات
-  maxDuplicatesBan: 10, // عدد الرسايل الي يقدر المستخدم يرسلها قبل الميوت
-  time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية 
-});
 
 client.login(process.env.BOT_TOKEN);
